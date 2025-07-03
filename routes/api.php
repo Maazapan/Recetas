@@ -11,6 +11,5 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::get('/recipes', [RecipeController::class, 'index']);
-
-// Proteger esta ruta para que solo usuarios autenticados puedan crear recetas
-Route::middleware('auth:api')->post('/recipes', [RecipeController::class, 'store']);
+Route::get('/recipes/{id}', [RecipeController::class, 'show']);
+Route::post('/recipes/save', [RecipeController::class, 'store']);
